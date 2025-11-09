@@ -70,7 +70,7 @@ if (isset($_POST['borrow_ticket_print'])) {
     $filename = 'borrow_ticket_' . date('Ymd_His') . '.html';
     $saved = file_put_contents($filename, $html);
 
-    if ($saved !== false) {
+    if ($saved != false) {
         header("Location: ../borrow_ticket.php?succ=Ticket printed&id=$id");
         exit;
     } else {

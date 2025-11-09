@@ -75,7 +75,6 @@
                             <td><?php echo $row['zaner']; ?></td>
                             <td><?php echo $row['pozicana']; ?></td>
                             <td>
-                                <a href="info.php?id=<?php echo $row['id']; ?>" class="btn btn-info btn-sm">Info</a>
                                 <a href="update.php?id=<?php echo $row['id']; ?>" class="btn btn-warning btn-sm">Update</a>
                                 <a href="php/delete.php?id=<?php echo $row['id']; ?>" class="btn btn-danger btn-sm">Delete</a>
                             </td>
