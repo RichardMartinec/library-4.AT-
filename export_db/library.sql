@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hostiteľ: 127.0.0.1
--- Čas generovania: St 05.Nov 2025, 22:24
+-- Čas generovania: Sun 09.Nov 2025, 21:14
 -- Verzia serveru: 10.4.32-MariaDB
 -- Verzia PHP: 8.2.12
 
@@ -32,18 +32,20 @@ CREATE TABLE `books` (
   `nazov` varchar(255) NOT NULL,
   `autor` varchar(255) NOT NULL,
   `pocet_stran` int(11) NOT NULL,
-  `zaner` varchar(255) NOT NULL
+  `zaner` varchar(255) NOT NULL,
+  `pozicana` varchar(255) NOT NULL DEFAULT 'NO'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Sťahujem dáta pre tabuľku `books`
 --
 
-INSERT INTO `books` (`id`, `nazov`, `autor`, `pocet_stran`, `zaner`) VALUES
-(1, 'kniha1', 'autor1', 255, 'zaner1'),
-(5, 'kjhgg', 'author7', 147, 'genre7'),
-(6, 'book9', 'author9', 1, 'genre9'),
-(7, 'book11', 'author11', 45, 'genre11');
+INSERT INTO `books` (`id`, `nazov`, `autor`, `pocet_stran`, `zaner`, `pozicana`) VALUES
+(7, 'book11', 'author11', 216, 'Komedia', 'YES'),
+(9, 'newbook', 'newauthor', 255, 'Detektivka', 'NO'),
+(10, 'book9', 'author9', 147, 'Fantasy', 'NO'),
+(12, 'knihavecna', 'richard', 255, 'Fantasy', 'NO'),
+(14, 'novakniha', 'novyautor', 255, 'Drama', 'NO');
 
 -- --------------------------------------------------------
 
@@ -64,9 +66,13 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `password`, `role`) VALUES
 (1, 'pokus', 'heslo', 'admin'),
-(2, 'pokus1', 'heslo1', 'user'),
-(3, 'pokus2', 'heslo2', 'user'),
-(4, 'pokus3', 'heslo3', 'user');
+(3, 'lubo', 'lubo', 'user'),
+(4, 'richard', 'hesl10', 'user'),
+(6, 'user6', 'heslo65', 'user'),
+(7, 'pouzivatel7', 'password7', 'user'),
+(13, 'lubolubo', 'heslo455', 'user'),
+(15, 'RichardMartinec', '9898', 'user'),
+(16, 'luboja', 'luboja', 'user');
 
 --
 -- Kľúče pre exportované tabuľky
@@ -92,13 +98,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pre tabuľku `books`
 --
 ALTER TABLE `books`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT pre tabuľku `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

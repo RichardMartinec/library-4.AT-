@@ -40,7 +40,7 @@
                             <div class="alert alert-danger mt-3" role="alert">
                                 <?php echo $_GET['err_login']; ?>    
                             </div>
-                        <?php }?>
+        <?php }?>
 
 
         <button type="submit" class="btn btn-primary" name="sent_login">Login</button>
