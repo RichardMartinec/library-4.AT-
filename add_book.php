@@ -50,14 +50,18 @@
                         echo $_GET['pocet_stran'];}?>">
         </div>        
 
+        
         <div class="mb-3">
             <label for="genre" class="form-label">Genre</label>
-            <input type="text" class="form-control" 
-                id="genre" 
-                name="zaner"
-                placeholder="Insert genre"
-                value="<?php if(isset ($_GET['zaner'])){
-                        echo $_GET['zaner'];}?>">
+            <select class="form-select" id="borrowed" name="zaner">
+                <option value="Komedia">Komedia</option>
+                <option value="Fantasy">Fantasy</option>
+                <option value="Sci-fi">Sci-fi</option>
+                <option value="Komiks">Komiks</option>
+                <option value="Detektivka">Detektivka</option>
+                <option value="Drama">Drama</option>
+            </select>
+ 
         </div>
 
         <button type="submit" class="btn btn-primary" name="save_book">Save</button>

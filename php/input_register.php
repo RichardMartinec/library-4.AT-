@@ -45,7 +45,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                 
 
                 if ($result) {
-                    $succes = "Registracion successful.";
+                    $succes = "Registration successful.";
                     header("Location: ../login.php?succ_register=" . urlencode($succes));
                     exit;
                 }else{

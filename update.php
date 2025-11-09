@@ -58,14 +58,24 @@
 
         <div class="mb-3">
             <label for="genre" class="form-label">Genre</label>
-            <input type="text" class="form-control" 
-                id="genre" 
-                name="zaner"
-                placeholder="Insert genre"
-                value="<?php 
-                    if (isset($_GET['zaner'])) echo $_GET['zaner'];
-                    else if (isset($row['zaner'])) echo ($row['zaner']); 
-                ?>">
+            <select class="form-select" id="genre" name="zaner">
+                <option value="" disabled <?php if (empty($row['zaner'])) echo 'selected'; ?>>– Vyber žáner –</option>
+                <option value="Komedia"    <?php if ($row['zaner'] == 'Komedia') echo 'selected'; ?>>Komedia</option>
+                <option value="Fantasy"    <?php if ($row['zaner'] == 'Fantasy') echo 'selected'; ?>>Fantasy</option>
+                <option value="Sci-fi"     <?php if ($row['zaner'] == 'Sci-fi') echo 'selected'; ?>>Sci-fi</option>
+                <option value="Komiks"     <?php if ($row['zaner'] == 'Komiks') echo 'selected'; ?>>Komiks</option>
+                <option value="Detektivka" <?php if ($row['zaner'] == 'Detektivka') echo 'selected'; ?>>Detektivka</option>
+                <option value="Drama"      <?php if ($row['zaner'] == 'Drama') echo 'selected'; ?>>Drama</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="borrowed" class="form-label">Borrowed</label>
+             <select class="form-select" id="borrowed" name="pozicana">
+                <option value="" disabled <?php if (empty($row['pozicana'])) echo 'selected'; ?>>– Vyber stav –</option>
+                <option value="YES"    <?php if ($row['pozicana'] == 'YES') echo 'selected'; ?>>YES</option>
+                <option value="NO"    <?php if ($row['pozicana'] == 'NO') echo 'selected'; ?>>NO</option>
+            </select>
         </div>
 
         <input type="hidden" name="id" id="id" value="<?php echo $row['id']; ?>"><br>

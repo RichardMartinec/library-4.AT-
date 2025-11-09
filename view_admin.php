@@ -29,15 +29,27 @@
          <form action="filter.php" method="GET">
             <button type="submit" class="btn btn-primary" name="filter_html">Filter</button>
                     <label for="filter_zaner" class="form-label">Filter genre</label>
-                    <input type="text" class="form-control" id="genre_filter" name="genre_filter" value="">
+                    <select class="form-select" id="genre" name="genre_filter">
+                        <option value="Komedia">Komedia</option>
+                        <option value="Fantasy">Fantasy</option>
+                        <option value="Sci-fi">Sci-fi</option>
+                        <option value="Komiks">Komiks</option>
+                        <option value="Detektivka">Detektivka</option>
+                        <option value="Drama">Drama</option>
+                    </select>
          </form> 
+
          <form action="filter.php" method="GET">
-            <button type="submit" class="btn btn-primary" name="filter_html">Filtrovat</button>
-                    <label for="filter_zaner" class="form-label">Filter dĺžka</label>
-                    <input type="text" class="form-control" id="dlzka_filtrovanie" name="dlzka_filtrovanie" value="">
+            <button type="submit" class="btn btn-primary" name="filter_html">Filter</button>
+                    <label for="filter_pozicana" class="form-label">Filter status</label>
+                    <select class="form-select" id="genre" name="borrowed_filter">
+                        <option value="NO">NO</option>
+                        <option value="YES">YES</option>
+                    </select>
          </form> 
         <a href="add_book.php" class="btn btn-primary mb-3">Add book</a>
-        <a href="statistics.php" class="btn btn-primary mb-3">Book statisctics</a>
+        <a href="statistics.php" class="btn btn-primary mb-3">Book statistics</a>
+        <a href="users_manage.php" class="btn btn-primary mb-3">Users</a>
         <table class="table">
             <thead>
                 <tr>
@@ -46,6 +58,7 @@
                 <th scope="col">Author</th>
                 <th scope="col">Number of pages</th>
                 <th scope="col">Genre</th>
+                <th scope="col">Borowed</th>
                 </tr>
             </thead>
             <tbody>
@@ -60,6 +73,7 @@
                             <td><?php echo $row['autor']; ?></td>
                             <td><?php echo $row['pocet_stran']; ?></td>
                             <td><?php echo $row['zaner']; ?></td>
+                            <td><?php echo $row['pozicana']; ?></td>
                             <td>
                                 <a href="info.php?id=<?php echo $row['id']; ?>" class="btn btn-info btn-sm">Info</a>
                                 <a href="update.php?id=<?php echo $row['id']; ?>" class="btn btn-warning btn-sm">Update</a>

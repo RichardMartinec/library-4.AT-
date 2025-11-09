@@ -22,8 +22,9 @@ if (isset($_POST['update_book'])) {
     $author = check($_POST['autor']);
     $pages = check($_POST['pocet_stran']);
     $genre = check($_POST['zaner']);
+    $borrowed = check($_POST['pozicana']);
 
-    $user_data ='nazov='.$book_name.'&autor='.$author.'&pocet_stran='.$pages.'&zaner='.$genre;
+    $user_data ='nazov='.$book_name.'&autor='.$author.'&pocet_stran='.$pages.'&zaner='.$genre. '&pozicana='.$borrowed;
 
     if (empty($book_name)) {
         header("Location:../update.php?err=Insert book title&$user_data");
@@ -33,9 +34,11 @@ if (isset($_POST['update_book'])) {
         header("Location:../update.php?err=Insert number of pages&$user_data");
     }else if (empty($genre)) {
         header("Location:../update.php?err=Insert genre&$user_data");
+    }else if (empty($borrowed)) {
+        header("Location:../update.php?err=Insert status&$user_data");
     }else{
 
-        $sql_update = "UPDATE books SET nazov = '$book_name', autor = '$author', pocet_stran = '$pages', zaner = '$genre' WHERE id = '$id'";
+        $sql_update = "UPDATE books SET nazov = '$book_name', autor = '$author', pocet_stran = '$pages', zaner = '$genre', pozicana = '$borrowed' WHERE id = '$id'";
 
         $result = mysqli_query($con, $sql_update);
 
