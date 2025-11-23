@@ -17,17 +17,15 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
   <body>
     <form action="php/add_new.php" method="POST">
         <h2>Add a new user</h2><hr><br>
-
-
-    <?php if (isset($_GET['succ'])) { ?>
-                            <div class="alert alert-success mt-3" role="alert">
-                                <?php echo $_GET['succ']; ?>
-                            </div>
-                        <?php } elseif(isset($_GET['err_new'])){?>
-                            <div class="alert alert-danger mt-3" role="alert">
-                                <?php echo $_GET['err_new']; ?>    
-                            </div>
-                        <?php }?>
+        <?php if (isset($_GET['succ'])) { ?>
+            <div class="alert alert-success mt-3" role="alert">
+                <?php echo $_GET['succ']; ?>
+            </div>
+        <?php } elseif(isset($_GET['err_new'])){?>
+            <div class="alert alert-danger mt-3" role="alert">
+                <?php echo $_GET['err_new']; ?>    
+            </div>
+        <?php }?>
 
         <a href="view_admin.php" class="btn btn-danger btn-sm mb-3">Back to view</a>
         

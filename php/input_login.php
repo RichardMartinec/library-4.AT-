@@ -20,9 +20,6 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
         exit;
     }
 
-    $_SESSION['loggedin'] = true;
-    $_SESSION['username'] = $username;
-
     while($row = mysqli_fetch_assoc($result)){
         $username_db = $row['username'];
         if($username == $username_db)
