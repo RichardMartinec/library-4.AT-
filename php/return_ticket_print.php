@@ -35,32 +35,34 @@ if (isset($_POST['return_ticket_print'])) {
         <meta charset="utf-8">
         <title>Return book ticket</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+                <link rel="stylesheet" href="../css/style.css">
     </head>
-    <body>
-        <div class="container bg-secondary text-white p-4 rounded">
-            <div class="container bg-primary text-white p-4 rounded" style="border: 2px solid yellow">
-                <div class="row bg-primary text-white p-4 rounded" style="border: 2px solid red">
-                    <h2>Library</h2><hr><br>
-                </div>  
-                    <h2>Return book ticket</h2><hr><br>
-                    <div class="mb-3">
-                        <strong>Book title:</strong> <?= $book_name ?>
-                    </div>
-                    <div class="mb-3">
-                        <strong>Author:</strong> <?= $author ?>
-                    </div>
-                    <div class="mb-3">
-                        <strong>Number of pages:</strong> <?= $pages ?>
-                    </div>
-                    <div class="mb-3">
-                        <strong>Genre:</strong> <?= $genre ?>
-                    </div>
-                    <div class="mb-3">
-                        <strong>Borrowed:</strong> <?= $borrowed ?>
-                    </div>
-                </div>   
+     <body>
+        <div class="container bg-transparent text-black p-4 rounded" style="border: 1px solid black">
+            <div class="header_ticket">
+                <nav class="nav_container_ticket">
+                    <h1 class="najknihy-logo">Najknihy</h1>
+                </nav>
+            </div>  
+            <div class="mt-4"> 
+                <h2>Return book ticket</h2><hr><br>
             </div>
-        </div>
+            <div class="mb-3">
+                <strong>Book title:</strong> <?= $book_name ?>
+            </div>
+            <div class="mb-3">
+                <strong>Author:</strong> <?= $author ?>
+            </div>
+            <div class="mb-3">
+                <strong>Number of pages:</strong> <?= $pages ?>
+            </div>
+            <div class="mb-3">
+                <strong>Genre:</strong> <?= $genre ?>
+            </div>
+            <div class="mb-3">
+                <strong>Borrowed:</strong> <?= $borrowed ?>
+            </div>
+        </div>   
     </body>
     </html>
 
