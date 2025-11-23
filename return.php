@@ -1,4 +1,10 @@
-<?php include 'php/return_book.php';?>
+<?php
+session_start();
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+    header("Location: login.php");
+    exit();
+}
+include 'php/return_book.php';?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -9,10 +15,21 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
   <body>
+    <header class="header">
+        <nav class="nav_container">
+            
+                <h1 class="najknihy-logo">Najknihy</h1>
+                <div class="sign_in_block">
+                    <a href="logout.php" class="sign_in_text">Odhlásiť sa</a>
+                    <img src="pictures/sign in icon.png" alt="sign in icon" class="sign_in_icon">
+                </div>
+                        
+        </nav>
+    </header>
     <form action="php/return_book.php" method="POST">
         <h2>Return book</h2><hr><br>       
        
-        <a href="view_user.php" class="btn btn-primary mb-3">Back to view</a>
+        <a href="view_user.php" class="btn btn-danger btn-3">Back to view</a>
 
         <?php if(isset($_GET['err'])) { ?>
            <div class="alert alert-danger" role="alert">
@@ -80,7 +97,7 @@
 
         <input type="hidden" name="id" id="id" value="<?php echo $row['id']; ?>"><br>
 
-        <button type="submit" class="btn btn-primary" name="return_book">Return</button>
+        <button type="submit" class="btn btn-danger" name="return_book">Return</button>
     </form>
 
 

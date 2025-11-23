@@ -1,3 +1,6 @@
+<?php 
+include 'php/input_login.php';
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,81 +11,95 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
   <body>
-    <form action="php/input_login.php" method="POST">
-        <h2>Login</h2><hr><br>   
-        <div class="mb-3">
-            <label for="username" class="form-label">Username</label>
-            <input type="text" class="form-control" 
-                id="username" 
-                name="username"
-                placeholder="Enter Username"
-                value="">
+    <header class="header">
+        <nav class="nav_container">
+            
+                <h1 class="najknihy-logo">Najknihy</h1>
+                <div class="sign_in_block">
+                    <a href="logout.php" class="sign_in_text">Odhlásiť sa</a>
+                    <img src="pictures/sign in icon.png" alt="sign in icon" class="sign_in_icon">
+                </div>
+                        
+        </nav>
+    </header>
 
-            <?php $pomoc = isset($_POST['succ']); 
-            echo $pomoc;
-        ?>
-        </div>
+    <div class="forms-wrapper">
+        <form action="php/input_login.php" method="POST">
+            <h2>Login</h2><hr><br>   
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" 
+                    id="username" 
+                    name="username"
+                    placeholder="Enter Username"
+                    value="">
 
-        <div class="mb-3">
-            <label for="password" class="form-label">Password</label>
-            <input type="text" class="form-control" 
-                id="password" 
-                name="password"
-                placeholder="Enter Password"
-                value="">
-        </div>
+                <?php $pomoc = isset($_POST['succ']); 
+                echo $pomoc;
+            ?>
+            </div>
+
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="text" class="form-control" 
+                    id="password" 
+                    name="password"
+                    placeholder="Enter Password"
+                    value="">
+            </div>
         
-        <?php if (isset($_GET['succ'])) { ?>
-                            <div class="alert alert-success mt-3" role="alert">
-                                <?php echo $_GET['succ']; ?>
-                            </div>
-                        <?php } elseif(isset($_GET['err_login'])){?>
-                            <div class="alert alert-danger mt-3" role="alert">
-                                <?php echo $_GET['err_login']; ?>    
-                            </div>
-        <?php }?>
+            <?php if (isset($_GET['succ'])) { ?>
+                                <div class="alert alert-success mt-3" role="alert">
+                                    <?php echo $_GET['succ']; ?>
+                                </div>
+                            <?php } elseif(isset($_GET['err_login'])){?>
+                                <div class="alert alert-danger mt-3" role="alert">
+                                    <?php echo $_GET['err_login']; ?>    
+                                </div>
+            <?php }?>
 
 
-        <button type="submit" class="btn btn-primary" name="sent_login">Login</button>
-    </form>
+            <button type="submit" class="btn btn-danger btn-sm" name="sent_login">Login</button>
+        </form>
 
-    <form action="php/input_register.php" method="POST">
-        <h2>Register</h2><hr><br>   
-        <div class="mb-3">
-            <label for="username" class="form-label">Username</label>
-            <input type="text" class="form-control" 
-                id="username" 
-                name="username"
-                placeholder="Enter Username"
-                value="">
+        <form action="php/input_register.php" method="POST">
+            <h2>Register</h2><hr><br>   
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" 
+                    id="username" 
+                    name="username"
+                    placeholder="Enter Username"
+                    value="">
 
-            <?php $pomoc = isset($_POST['succ']); 
-            echo $pomoc;
-        ?>
-        </div>
+                <?php $pomoc = isset($_POST['succ']); 
+                echo $pomoc;
+            ?>
+            </div>
 
-        <div class="mb-3">
-            <label for="password" class="form-label">Password</label>
-            <input type="text" class="form-control" 
-                id="password" 
-                name="password"
-                placeholder="Enter Password"
-                value="">
-        </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="text" class="form-control" 
+                    id="password" 
+                    name="password"
+                    placeholder="Enter Password"
+                    value="">
+            </div>
         
-        <?php if (isset($_GET['succ_register'])) { ?>
-                            <div class="alert alert-success mt-3" role="alert">
-                                <?php echo $_GET['succ_register']; ?>
-                            </div>
-                        <?php } elseif(isset($_GET['err_register'])){?>
-                            <div class="alert alert-danger mt-3" role="alert">
-                                <?php echo $_GET['err_register']; ?>    
-                            </div>
-                        <?php }?>
+            <?php if (isset($_GET['succ_register'])) { ?>
+                                <div class="alert alert-success mt-3" role="alert">
+                                    <?php echo $_GET['succ_register']; ?>
+                                </div>
+                            <?php } elseif(isset($_GET['err_register'])){?>
+                                <div class="alert alert-danger mt-3" role="alert">
+                                    <?php echo $_GET['err_register']; ?>    
+                                </div>
+                            <?php }?>
 
 
-        <button type="submit" class="btn btn-primary" name="sent_register">Register</button>
-    </form>
+            <button type="submit" class="btn btn-danger btn-sm" name="sent_register">Register</button>
+        </form>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>

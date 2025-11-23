@@ -20,6 +20,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
         exit;
     }
 
+    $_SESSION['loggedin'] = true;
+    $_SESSION['username'] = $username;
+
     while($row = mysqli_fetch_assoc($result)){
         $username_db = $row['username'];
         if($username == $username_db)
@@ -67,10 +70,18 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
 
 
     if ($usermane_found == 1 && $password_found == 1 && $role_db =='admin') {
+        session_start();
+        $_SESSION['loggedin'] = true;
+        $_SESSION['username'] = $username;
+        
         header("Location: ../view_admin.php");
         exit;
 
     } elseif ($usermane_found == 1 && $password_found == 1 && $role_db =='user') {
+        session_start();
+        $_SESSION['loggedin'] = true;
+        $_SESSION['username'] = $username;
+        
         header("Location: ../view_user.php");
         exit;
     }

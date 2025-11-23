@@ -1,3 +1,10 @@
+<?php 
+session_start();
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+    header("Location: login.php");
+    exit();
+}
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -22,7 +29,7 @@
                             </div>
                         <?php }?>
 
-        <a href="view_admin.php" class="btn btn-primary mb-3">Back to view</a>
+        <a href="view_admin.php" class="btn btn-danger btn-sm mb-3">Back to view</a>
         
         <div class="mb-3">
             <label for="username" class="form-label">Username</label>
@@ -53,7 +60,7 @@
                     </select>
         </div>
 
-        <button type="submit" class="btn btn-primary" name="save_user">Save</button>
+        <button type="submit" class="btn btn-danger btn-sm" name="save_user">Save</button>
     </form>
 
 

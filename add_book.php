@@ -1,3 +1,10 @@
+<?php 
+session_start();
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+    header("Location: login.php");
+    exit();
+}
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,6 +15,17 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
   <body>
+    <header class="header">
+        <nav class="nav_container">
+            
+                <h1 class="najknihy-logo">Najknihy</h1>
+                <div class="sign_in_block">
+                    <a href="logout.php" class="sign_in_text">Odhlásiť sa</a>
+                    <img src="pictures/sign in icon.png" alt="sign in icon" class="sign_in_icon">
+                </div>
+                        
+        </nav>
+    </header>
     <form action="php/add.php" method="POST">
         <h2>Add new book</h2><hr><br>
 
@@ -18,7 +36,7 @@
         <?php } ?>
 
 
-        <a href="view_admin.php" class="btn btn-primary mb-3">Back to view</a>
+        <a href="view_admin.php" class="btn btn-danger btn-sm mb-3">Back to view</a>
         
         <div class="mb-3">
             <label for="title" class="form-label">Title</label>
@@ -64,7 +82,7 @@
  
         </div>
 
-        <button type="submit" class="btn btn-primary" name="save_book">Save</button>
+        <button type="submit" class="btn btn-danger btn-sm mb-3" name="save_book">Save</button>
     </form>
 
 

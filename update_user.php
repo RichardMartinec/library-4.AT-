@@ -1,4 +1,9 @@
-<?php include 'php/user_update.php';?>
+<?php include 'php/user_update.php';
+session_start();
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+    header("Location: login.php");
+    exit();
+}?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -12,7 +17,7 @@
     <form action="php/user_update.php" method="POST">
         <h2>Update user</h2><hr><br>       
        
-        <a href="users_manage.php" class="btn btn-primary mb-3">Back to view</a>
+        <a href="users_manage.php" class="btn btn-danger btn-sm mb-3">Back to view</a>
 
         <?php if(isset($_GET['err'])) { ?>
            <div class="alert alert-danger" role="alert">
@@ -55,7 +60,7 @@
 
         <input type="hidden" name="id" id="id" value="<?php echo $row['id']; ?>"><br>
 
-        <button type="submit" class="btn btn-primary" name="update_user">Save</button>
+        <button type="submit" class="btn btn-danger btn-sm" name="update_user">Save</button>
     </form>
 
 

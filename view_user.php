@@ -1,4 +1,10 @@
-<?php include 'php/read.php';?>
+<?php
+session_start();
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+    header("Location: login.php");
+    exit();
+}
+include 'php/read.php';?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -9,6 +15,49 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
   <body>
+    <header class="header">
+        <nav class="nav_container">
+            
+                <h1 class="najknihy-logo">Najknihy</h1>
+                <div class="filters_block_column">
+                    <div class="filter_column">
+                        <form action="filter_user.php" method="GET">
+                            <input type="text" class="form-control" id="author_filter" name="author_filter" value="" placeholder="Filter Author">
+                            <button type="submit" class="btn btn-danger btn-sm" name="filter_html">Filter</button>
+                        </form>
+                    </div>
+                    <div class="filter_column">
+                        <form action="filter_user.php" method="GET">
+                            <select class="form-select" id="genre" name="genre_filter" placeholder="Filter Genre">
+                                <option value="Komedia">Komedia</option>
+                                <option value="Fantasy">Fantasy</option>
+                                <option value="Sci-fi">Sci-fi</option>
+                                <option value="Komiks">Komiks</option>
+                                <option value="Detektivka">Detektivka</option>
+                                <option value="Drama">Drama</option>
+                            </select>
+                            <button type="submit" class="btn btn-danger btn-sm" name="filter_html">Filter</button>
+                        </form> 
+                    </div>
+                    <div class="filter_column">
+                        <form action="filter_user.php" method="GET">
+                            <select class="form-select" id="genre" name="borrowed_filter" placeholder="Filter Status">
+                                <option value="NO">NO</option>
+                                <option value="YES">YES</option>
+                            </select>
+                            <button type="submit" class="btn btn-danger btn-sm" name="filter_html">Filter</button>
+                        </form> 
+                    </div>
+                    
+                </div>
+                <div class="sign_in_block">
+                    <a href="logout.php" class="sign_in_text">Odhlásiť sa</a>
+                    <img src="pictures/sign in icon.png" alt="sign in icon" class="sign_in_icon">
+                </div>
+            
+            
+        </nav>
+    </header>
     <div class="wrapper">
         <h2>Books</h2><hr><br>
         <?php if (isset($_GET['succ'])) { ?>
@@ -21,32 +70,6 @@
         </div>
         <?php }?>
 
-        <form action="filter_user.php" method="GET">
-            <button type="submit" class="btn btn-primary" name="filter_html">Filter</button>
-                    <label for="filter_author" class="form-label">Filter author</label>
-                    <input type="text" class="form-control" id="author_filter" name="author_filter" value="">
-         </form> 
-         <form action="filter_user.php" method="GET">
-            <button type="submit" class="btn btn-primary" name="filter_html">Filter</button>
-                    <label for="filter_zaner" class="form-label">Filter genre</label>
-                    <select class="form-select" id="genre" name="genre_filter">
-                        <option value="Komedia">Komedia</option>
-                        <option value="Fantasy">Fantasy</option>
-                        <option value="Sci-fi">Sci-fi</option>
-                        <option value="Komiks">Komiks</option>
-                        <option value="Detektivka">Detektivka</option>
-                        <option value="Drama">Drama</option>
-                    </select>
-         </form> 
-
-         <form action="filter_user.php" method="GET">
-            <button type="submit" class="btn btn-primary" name="filter_html">Filter</button>
-                    <label for="filter_pozicana" class="form-label">Filter status</label>
-                    <select class="form-select" id="genre" name="borrowed_filter">
-                        <option value="NO">NO</option>
-                        <option value="YES">YES</option>
-                    </select>
-         </form>
         <table class="table">
             <thead>
                 <tr>

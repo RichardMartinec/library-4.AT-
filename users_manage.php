@@ -1,4 +1,10 @@
-<?php include 'php/read_users.php';?>
+<?php 
+session_start();
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+    header("Location: login.php");
+    exit();
+}
+include 'php/read_users.php';?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -9,6 +15,17 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
   <body>
+    <header class="header">
+        <nav class="nav_container">
+            
+                <h1 class="najknihy-logo">Najknihy</h1>
+                <div class="sign_in_block">
+                    <a href="logout.php" class="sign_in_text">Odhlásiť sa</a>
+                    <img src="pictures/sign in icon.png" alt="sign in icon" class="sign_in_icon">
+                </div>
+                        
+        </nav>
+    </header>
     <div class="wrapper">
         <h2>Users manage</h2><hr><br>
         <?php if (isset($_GET['succ'])) { ?>
@@ -22,7 +39,7 @@
         <?php }?>
 
        
-        <a href="add_user.php" class="btn btn-primary mb-3">Add user</a>
+        <a href="view_admin.php" class="btn btn-danger btn-sm mb-3">Back to view</a>
         <table class="table">
             <thead>
                 <tr>
@@ -53,8 +70,8 @@
                     <?php } ?>
             </tbody>       
         </table>
-        <a href="view_admin.php" class="btn btn-primary mb-3">Back to view</a>
-    </div>
+        <a href="add_user.php" class="btn btn-danger btn-sm mb-3">Add user</a>
+        </div>
 
 
 
