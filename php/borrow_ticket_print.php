@@ -2,19 +2,6 @@
 include 'connect_db.php';
 include 'function.php';
 
-if (isset($_GET['id'])){
-    $id = check($_GET['id']);
-
-    $sql = "SELECT * FROM books WHERE id = $id";
-    $result = mysqli_query($con, $sql);
-
-    if (mysqli_num_rows($result) > 0) {
-        $row = mysqli_fetch_assoc($result);
-    }else{ 
-        header("Location:../view_user.php?err=Book not in database!!!");
-    }
-}
-
 if (isset($_POST['borrow_ticket_print'])) {
 
     $id = check($_POST['id']);

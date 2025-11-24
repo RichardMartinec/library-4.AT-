@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hostiteľ: 127.0.0.1
--- Čas generovania: Sun 09.Nov 2025, 21:14
+-- Čas generovania: Po 24.Nov 2025, 21:39
 -- Verzia serveru: 10.4.32-MariaDB
 -- Verzia PHP: 8.2.12
 
@@ -41,11 +41,13 @@ CREATE TABLE `books` (
 --
 
 INSERT INTO `books` (`id`, `nazov`, `autor`, `pocet_stran`, `zaner`, `pozicana`) VALUES
-(7, 'book11', 'author11', 216, 'Komedia', 'YES'),
-(9, 'newbook', 'newauthor', 255, 'Detektivka', 'NO'),
-(10, 'book9', 'author9', 147, 'Fantasy', 'NO'),
-(12, 'knihavecna', 'richard', 255, 'Fantasy', 'NO'),
-(14, 'novakniha', 'novyautor', 255, 'Drama', 'NO');
+(7, 'book11', 'author11', 216, 'Komedia', 'NO'),
+(10, 'book9', 'author9', 147, 'Fantasy', 'YES'),
+(12, 'knihavecna', 'richard', 255, 'Fantasy', 'YES'),
+(14, 'novakniha', 'novyautor', 255, 'Drama', 'YES'),
+(16, 'Kniha24', 'autor24', 215, 'Sci-fi', 'YES'),
+(17, 'Kniha25', 'Autor25', 215, 'Komiks', 'YES'),
+(19, 'kniha', 'autor', 500, 'Komedia', 'NO');
 
 -- --------------------------------------------------------
 
@@ -68,11 +70,13 @@ INSERT INTO `users` (`id`, `username`, `password`, `role`) VALUES
 (1, 'pokus', 'heslo', 'admin'),
 (3, 'lubo', 'lubo', 'user'),
 (4, 'richard', 'hesl10', 'user'),
-(6, 'user6', 'heslo65', 'user'),
-(7, 'pouzivatel7', 'password7', 'user'),
 (13, 'lubolubo', 'heslo455', 'user'),
 (15, 'RichardMartinec', '9898', 'user'),
-(16, 'luboja', 'luboja', 'user');
+(17, 'newman', 'newpas', 'user'),
+(19, 'newuse', 'newhes', 'user'),
+(20, 'novyuz', 'novehe', 'admin'),
+(21, 'lubo1', 'lubo1', 'user'),
+(22, 'richard2', 'richard2', 'user');
 
 --
 -- Kľúče pre exportované tabuľky
@@ -98,13 +102,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pre tabuľku `books`
 --
 ALTER TABLE `books`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT pre tabuľku `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
